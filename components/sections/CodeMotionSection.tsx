@@ -1,7 +1,6 @@
 import { CodeSnippet } from "../CodeSnippet";
 import { InteractiveTerminal } from "../InteractiveTerminal";
 import { Terminal } from "../Terminal";
-import { Card, CardContent } from "../ui/card";
 
 export function CodeMotionSection(){
     // API Logs Terminal
@@ -63,7 +62,7 @@ export function CodeMotionSection(){
       <div className="mt-8">
         <div className="text-center mb-4">
           <h4 className="text-xl font-bold mb-1">Try the Interactive Terminal</h4>
-          <p className="text-sm text-neutral-400">Type "help" to see available commands</p>
+          <p className="text-sm text-neutral-400">Type &quot;help&quot; to see available commands</p>
         </div>
         <InteractiveTerminal />
       </div>

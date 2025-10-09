@@ -1,6 +1,7 @@
 'use client';
 
 import { Card, CardContent } from "./ui/card";
+import Image from "next/image";
 
 export function TechStackGrid() {
   const categories = [
@@ -86,7 +87,7 @@ export function TechStackGrid() {
                 style={{ animationDelay: `${idx * 60}ms` }}
               >
                 <CardContent className="p-6 text-center flex flex-col items-center gap-3">
-                  <img src={tech.icon} alt={tech.name} width={48} height={48} className="drop-shadow-md" />
+                  <Image src={tech.icon} alt={tech.name} width={48} height={48} className="drop-shadow-md" />
                   <span className="text-sm font-mono text-neutral-300">{tech.name}</span>
                 </CardContent>
               </Card>

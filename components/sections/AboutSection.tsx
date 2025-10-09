@@ -8,7 +8,7 @@ export function AboutSection(){
             <h3 className="text-2xl font-bold mb-4">About Me</h3>
             <div className="space-y-4 text-neutral-300">
               <p>
-                I'm a backend developer focused on building scalable, reliable systems. 
+                I&apos;mm a backend developer focused on building scalable, reliable systems. 
                 My expertise lies in designing RESTful APIs, optimizing database queries, 
                 and architecting microservices.
               </p>

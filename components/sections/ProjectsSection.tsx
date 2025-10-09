@@ -91,7 +91,7 @@ export function ProjectsSection(){
         <section id="projects" className="space-y-6 scroll-mt-32">
       <div className="text-center mb-12">
         <h3 className="text-3xl font-bold mb-2">Projects</h3>
-        <p className="text-neutral-400">Things I've built and learned</p>
+        <p className="text-neutral-400">Things I&apos;mve built and learned</p>
       </div>
 
       {/* Filter Buttons */}
@@ -194,7 +194,7 @@ export function ProjectsSection(){
       <Card className="bg-neutral-900 border-neutral-800 mt-8">
         <CardContent className="p-6 text-center">
           <div className="font-mono text-sm space-y-2 text-neutral-400">
-            <div><span className="text-emerald-400">$</span> git commit -m "More projects coming soon..."</div>
+            <div><span className="text-emerald-400">$</span> git commit -m &quot;More projects coming soon...&quot;</div>
             <div><span className="text-cyan-400">→</span> Currently learning and building</div>
             <div className="flex items-center justify-center gap-2 pt-2">
               <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>

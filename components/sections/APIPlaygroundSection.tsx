@@ -3,21 +3,33 @@
 import { useState } from "react";
 import { Card, CardContent } from "../ui/card";
 
-interface APIEndpoint{
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-    path: string;
-    description: string;
-    params?: { name: string; type: string; required: boolean }[];
-    exampleResponse: any;
+interface APIResponse {
+  success: boolean;
+  data?: unknown;
+  message?: string;
 }
 
-export function APIPlaygroundSection(){
-    const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint | null>(null);
-    const [requestBody, setRequestBody] = useState('');
-    const [response, setResponse] = useState<any>(null);
-    const [loading, setLoading] = useState(false);
+interface APIEndpoint {
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  path: string;
+  description: string;
+  params?: { name: string; type: string; required: boolean }[];
+  exampleResponse: APIResponse;
+}
 
-    // Mock API endpoints
+interface APIResponseMock {
+  status: number;
+  statusText: string;
+  headers: Record<string, string>;
+  data: APIResponse;
+}
+
+export function APIPlaygroundSection() {
+  const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint | null>(null);
+  const [requestBody, setRequestBody] = useState('');
+  const [response, setResponse] = useState<APIResponseMock | null>(null);
+  const [loading, setLoading] = useState(false);
+
   const endpoints: APIEndpoint[] = [
     {
       method: 'GET',
@@ -35,9 +47,7 @@ export function APIPlaygroundSection(){
       method: 'GET',
       path: '/api/projects/:id',
       description: 'Get project by ID',
-      params: [
-        { name: 'id', type: 'number', required: true }
-      ],
+      params: [{ name: 'id', type: 'number', required: true }],
       exampleResponse: {
         success: true,
         data: { id: 1, name: "Portfolio", status: "completed", tech: ["Next.js", "TypeScript"] }
@@ -78,8 +88,7 @@ export function APIPlaygroundSection(){
 
     await new Promise(resolve => setTimeout(resolve, 800));
 
-     // Mock response
-    setResponse({
+    const mockResponse: APIResponseMock = {
       status: 200,
       statusText: 'OK',
       headers: {
@@ -87,10 +96,11 @@ export function APIPlaygroundSection(){
         'Response-Time': '42ms'
       },
       data: endpoint.exampleResponse
-    });
+    };
 
+    setResponse(mockResponse);
     setLoading(false);
-  }
+  };
 
   const getMethodColor = (method: string) => {
     switch (method) {
@@ -102,7 +112,7 @@ export function APIPlaygroundSection(){
     }
   };
 
-   return (
+  return (
     <section id="api-playground" className="space-y-6 scroll-mt-32">
       <div className="text-center mb-12">
         <h3 className="text-3xl font-bold mb-2">API Playground</h3>
@@ -110,7 +120,7 @@ export function APIPlaygroundSection(){
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
-        {/* Endpoints List */}
+        {/* Endpoint List */}
         <div className="lg:col-span-1 space-y-3">
           <h4 className="text-sm font-bold text-neutral-400 mb-3">AVAILABLE ENDPOINTS</h4>
           {endpoints.map((endpoint, idx) => (
@@ -146,14 +156,12 @@ export function APIPlaygroundSection(){
             <Card className="bg-neutral-900 border-neutral-800">
               <CardContent className="p-12 text-center">
                 <div className="text-4xl mb-4">🚀</div>
-                <p className="text-neutral-400 font-mono text-sm">
-                  Select an endpoint to test the API
-                </p>
+                <p className="text-neutral-400 font-mono text-sm">Select an endpoint to test the API</p>
               </CardContent>
             </Card>
           ) : (
             <>
-              {/* Request Section */}
+              {/* Request */}
               <Card className="bg-neutral-900 border-neutral-800">
                 <div className="bg-neutral-800 px-4 py-2 border-b border-neutral-700">
                   <span className="text-xs text-neutral-400 font-mono">REQUEST</span>
@@ -176,9 +184,7 @@ export function APIPlaygroundSection(){
                           <span className="text-cyan-400">{param.name}</span>
                           <span className="text-neutral-600">:</span>
                           <span className="text-purple-400">{param.type}</span>
-                          {param.required && (
-                            <span className="text-red-400 text-xs">(required)</span>
-                          )}
+                          {param.required && <span className="text-red-400 text-xs">(required)</span>}
                         </div>
                       ))}
                     </div>
@@ -218,7 +224,7 @@ export function APIPlaygroundSection(){
                 </CardContent>
               </Card>
 
-              {/* Response Section */}
+              {/* Response */}
               {response && (
                 <Card className="bg-neutral-900 border-neutral-800">
                   <div className="bg-neutral-800 px-4 py-2 border-b border-neutral-700 flex items-center justify-between">
@@ -228,7 +234,6 @@ export function APIPlaygroundSection(){
                     </span>
                   </div>
                   <CardContent className="p-4 space-y-3">
-                    {/* Headers */}
                     <div>
                       <div className="text-xs text-neutral-400 font-mono mb-2">HEADERS</div>
                       <div className="bg-neutral-950 border border-neutral-700 rounded p-3 font-mono text-xs space-y-1">
@@ -240,14 +245,10 @@ export function APIPlaygroundSection(){
                         ))}
                       </div>
                     </div>
-
-                    {/* Body */}
                     <div>
                       <div className="text-xs text-neutral-400 font-mono mb-2">BODY</div>
                       <div className="bg-neutral-950 border border-neutral-700 rounded p-3 font-mono text-xs overflow-x-auto">
-                        <pre className="text-emerald-400">
-                          {JSON.stringify(response.data, null, 2)}
-                        </pre>
+                        <pre className="text-emerald-400">{JSON.stringify(response.data, null, 2)}</pre>
                       </div>
                     </div>
                   </CardContent>
@@ -258,7 +259,6 @@ export function APIPlaygroundSection(){
         </div>
       </div>
 
-      {/* Info Note */}
       <Card className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
