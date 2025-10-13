@@ -75,26 +75,37 @@ export function TechStackGrid() {
   ];
 
   return (
-    <div className="space-y-16">
-      {categories.map((category) => (
-        <section key={category.title}>
-          <h3 className="text-xl font-bold mb-8 text-emerald-400 tracking-wide">{category.title}</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {category.items.map((tech, idx) => (
-              <Card
-                key={tech.name}
-                className="bg-neutral-900 border-neutral-800 hover:border-emerald-500 transition-all hover:scale-105 cursor-pointer shadow-md hover:shadow-emerald-500/20"
-                style={{ animationDelay: `${idx * 60}ms` }}
-              >
-                <CardContent className="p-6 text-center flex flex-col items-center gap-3">
-                  <Image src={tech.icon} alt={tech.name} width={48} height={48} className="drop-shadow-md" />
-                  <span className="text-sm font-mono text-neutral-300">{tech.name}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
+   <div className="space-y-16">
+  {categories.map((category) => (
+    <section key={category.title}>
+      <h3 className="text-xl font-bold mb-8 text-emerald-500 dark:text-emerald-400 tracking-wide">
+        {category.title}
+      </h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        {category.items.map((tech, idx) => (
+          <Card
+            key={tech.name}
+            className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all hover:scale-105 cursor-pointer shadow-md hover:shadow-emerald-500/20"
+            style={{ animationDelay: `${idx * 60}ms` }}
+          >
+            <CardContent className="p-6 text-center flex flex-col items-center gap-3">
+              <Image
+                src={tech.icon}
+                alt={tech.name}
+                width={48}
+                height={48}
+                className="drop-shadow-md"
+              />
+              <span className="text-sm font-mono text-gray-700 dark:text-neutral-300">
+                {tech.name}
+              </span>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
+
   );
 }
