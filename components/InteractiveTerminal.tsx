@@ -9,6 +9,7 @@ interface TerminalLine {
 }
 
 export function InteractiveTerminal() {
+  const isFirstRender = useRef(true);
   const [history, setHistory] = useState<TerminalLine[]>([
     { type: "output", content: "Welcome to Jan Rusell's Portfolio Terminal" },
     { type: "output", content: 'Type "help" to see available commands' },
@@ -71,6 +72,7 @@ Building scalable and reliable backend systems`,
         setHistory((prev) => [...prev, { type: "output", content: output }]);
       }
     } else {
+      
       setHistory((prev) => [
         ...prev,
         {
@@ -89,6 +91,10 @@ Building scalable and reliable backend systems`,
 
   // Auto-scroll to bottom when new content is added
   useEffect(() => {
+    if (isFirstRender.current){
+      isFirstRender.current = false;
+      return;
+    }
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [history]);
 
@@ -100,33 +106,33 @@ Building scalable and reliable backend systems`,
   const getLineColor = (type: TerminalLine["type"]) => {
     switch (type) {
       case "command":
-        return "text-emerald-400";
+        return "text-emerald-600 dark:text-emerald-400";
       case "error":
-        return "text-red-400";
+        return "text-red-600 dark:text-red-400"; 
       case "output":
-        return "text-neutral-300";
+        return "text-neutral-700 dark:text-neutral-300";  
       default:
-        return "text-neutral-300";
+        return "text-neutral-700 dark:text-neutral-300";
     }
   };
 
   return (
-    <Card className="bg-neutral-900 border-neutral-800 overflow-hidden">
+    <Card className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 overflow-hidden">
       {/* Terminal Header */}
-      <div className="bg-neutral-800 px-4 py-2 border-b border-neutral-700 flex items-center gap-2">
+      <div className="bg-gray-200 dark:bg-neutral-800  px-4 py-2 border-b border-gray-200 dark:border-neutral-700 flex items-center gap-2">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <span className="text-xs text-neutral-400 font-mono ml-2">
+        <span className="text-xs text-neutral-600 dark:text-neutral-400 font-mono ml-2">
           interactive-terminal.sh
         </span>
       </div>
 
       {/* Terminal Content */}
       <CardContent
-        className="p-4 font-mono text-sm h-[400px] overflow-y-auto cursor-text"
+        className="p-4 font-mono text-sm h-[400px] overflow-y-auto cursor-text text-black dark:text-neutral-300"
         onClick={handleTerminalClick}
       >
         {history.map((line, idx) => (
@@ -146,8 +152,7 @@ Building scalable and reliable backend systems`,
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 bg-transparent outline-none text-neutral-300"
-            autoFocus
+            className="flex-1 bg-transparent outline-none text-black dark:text-neutral-300"
             spellCheck={false}
           />
           <span className="inline-block w-2 h-4 bg-emerald-400 animate-pulse"></span>
