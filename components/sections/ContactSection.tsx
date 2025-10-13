@@ -5,7 +5,7 @@ export default function ContactSection() {
     <section id="contact" className="space-y-6 scroll-mt-32">
       <Card className="bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 border-emerald-500/20">
         <CardContent className="p-8 text-center">
-          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Let's Connect</h3>
+          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Let&apos;s Connect</h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:janrusellengracial@gmail.com"
@@ -31,7 +31,7 @@ export default function ContactSection() {
             </a>
           </div>
           <div className="mt-6 font-mono text-sm text-gray-600 dark:text-neutral-400">
-            <span className="text-emerald-400">$ </span>echo "Thanks for visiting!"
+            <span className="text-emerald-400">$ </span>echo &quot;Thanks for visiting!&quot;
           </div>
         </CardContent>
       </Card>

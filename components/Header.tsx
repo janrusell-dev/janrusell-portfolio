@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
-import { Button } from "./ui/button";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { DarkModeToggle } from "./DarkModeToggle";
 
