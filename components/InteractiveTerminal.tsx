@@ -106,7 +106,7 @@ Building scalable and reliable backend systems`,
   const getLineColor = (type: TerminalLine["type"]) => {
     switch (type) {
       case "command":
-        return "text-emerald-600 dark:text-emerald-400";
+        return "text-cyan-600 dark:text-cyan-400";
       case "error":
         return "text-red-600 dark:text-red-400"; 
       case "output":
@@ -146,7 +146,7 @@ Building scalable and reliable backend systems`,
 
         {/* Input Line */}
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
-          <span className="text-emerald-400">$</span>
+          <span className="text-cyan-400">$</span>
           <input
             ref={inputRef}
             type="text"
@@ -155,7 +155,7 @@ Building scalable and reliable backend systems`,
             className="flex-1 bg-transparent outline-none text-black dark:text-neutral-300"
             spellCheck={false}
           />
-          <span className="inline-block w-2 h-4 bg-emerald-400 animate-pulse"></span>
+          <span className="inline-block w-2 h-4 bg-cyan-400 animate-pulse"></span>
         </form>
 
         <div ref={bottomRef} />

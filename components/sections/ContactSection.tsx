@@ -3,13 +3,13 @@ import { Card, CardContent } from "../ui/card";
 export default function ContactSection() {
   return (
     <section id="contact" className="space-y-6 scroll-mt-32">
-      <Card className="bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 border-emerald-500/20">
+      <Card className="bg-gradient-to-br from-cyan-500/10 to-cyan-500/10 border-cyan-500/20">
         <CardContent className="p-8 text-center">
           <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Let&apos;s Connect</h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:janrusellengracial@gmail.com"
-              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-emerald-400 dark:hover:border-emerald-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
+              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-cyan-400 dark:hover:border-cyan-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
             >
               📧 Email
             </a>
@@ -17,7 +17,7 @@ export default function ContactSection() {
               href="https://github.com/janrusell-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-emerald-400 dark:hover:border-emerald-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
+              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-cyan-400 dark:hover:border-cyan-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
             >
               💻 GitHub
             </a>
@@ -25,13 +25,13 @@ export default function ContactSection() {
               href="https://www.linkedin.com/in/engracial-jan-rusell-g/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-emerald-400 dark:hover:border-emerald-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
+              className="px-6 py-3 bg-gray-50 dark:bg-neutral-900 border border-gray-300 dark:border-neutral-700 hover:border-cyan-400 dark:hover:border-cyan-500 rounded-lg font-mono text-sm text-gray-800 dark:text-neutral-200 transition-colors"
             >
               💼 LinkedIn
             </a>
           </div>
           <div className="mt-6 font-mono text-sm text-gray-600 dark:text-neutral-400">
-            <span className="text-emerald-400">$ </span>echo &quot;Thanks for visiting!&quot;
+            <span className="text-cyan-400">$ </span>echo &quot;Thanks for visiting!&quot;
           </div>
         </CardContent>
       </Card>

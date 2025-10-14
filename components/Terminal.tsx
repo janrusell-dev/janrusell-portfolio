@@ -31,7 +31,7 @@ export function Terminal({ lines, title, delay = 600 }: TerminalProps) {
 
    // Determine line color based on prefix
   const getLineColor = (line: string) => {
-    if (line.startsWith('$')) return 'text-emerald-400';
+    if (line.startsWith('$')) return 'text-cyan-400';
     if (line.startsWith('→')) return 'text-blue-400';
     if (line.startsWith('[INFO]')) return 'text-amber-400';
     if (line.startsWith('[ERROR]')) return 'text-red-400';
@@ -65,7 +65,7 @@ export function Terminal({ lines, title, delay = 600 }: TerminalProps) {
     
     {/* Blinking Cursor */}
     {showCursor && (
-      <span className="inline-block w-2 h-4 bg-emerald-400 animate-pulse ml-1"></span>
+      <span className="inline-block w-2 h-4 bg-cyan-400 animate-pulse ml-1"></span>
     )}
   </CardContent>
 </Card>

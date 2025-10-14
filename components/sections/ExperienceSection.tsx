@@ -50,7 +50,7 @@ export function ExperienceSection() {
           <Card
             key={idx}
             className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 
-                       hover:border-emerald-400 dark:hover:border-emerald-500  transition-all hover:scale-[1.02] group"
+                       hover:border-cyan-400 dark:hover:border-cyan-500  transition-all hover:scale-[1.02] group"
           >
             <CardContent className="p-6 space-y-4">
               {/* Header */}
@@ -67,7 +67,7 @@ export function ExperienceSection() {
                 {exp.highlights.map((highlight, i) => (
                   <div
                     key={i}
-                    className="text-xs font-mono text-emerald-500 dark:text-emerald-400 flex items-start gap-2"
+                    className="text-xs font-mono text-cyan-500 dark:text-cyan-400 flex items-start gap-2"
                   >
                     <span className="text-neutral-400 dark:text-neutral-600">→</span>
                     <span>{highlight}</span>

@@ -19,7 +19,7 @@ export function CodeSnippet({ code, language }: { code: string; language: string
       </div>
       <CardContent className="p-4 font-mono text-sm text-black dark:text-neutral-300">
         <pre className={`transition-opacity duration-500 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
-          <code className="text-emerald-400 dark:text-emerald-400">{code}</code>
+          <code className="text-cyan-400 dark:text-cyan-400">{code}</code>
         </pre>
       </CardContent>
     </Card>

@@ -41,7 +41,7 @@ export function Header() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="text-sm text-black dark:text-white hover:text-emerald-400 dark:hover:text-emerald-400 transition-colors"
+                className="text-sm text-black dark:text-white hover:text-cyan-400 dark:hover:text-cyan-300 transition-colors"
               >
                 {section.label}
               </a>
@@ -56,7 +56,7 @@ export function Header() {
           <DarkModeToggle />
 
           <button
-            className="text-emerald-400 p-2 rounded hover:bg-gray-200 dark:hover:bg-neutral-800 transition"
+            className="text-cyan-400 p-2 rounded hover:bg-gray-200 dark:hover:bg-neutral-800 transition"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -72,7 +72,7 @@ export function Header() {
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="block text-sm text-black dark:text-white hover:text-emerald-400 transition-colors"
+                  className="block text-sm text-black dark:text-white hover:text-cyan-400 dark:hover:text-cyan-400 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {section.label}
@@ -85,7 +85,7 @@ export function Header() {
 
       {/* Portfolio Loaded */}
       <div className="mt-2 px-6">
-        <span className="text-emerald-400 font-mono text-sm animate-pulse">
+        <span className="text-cyan-400 font-mono text-sm animate-pulse">
           $ portfolio loaded
         </span>
       </div>

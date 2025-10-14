@@ -78,14 +78,14 @@ export function TechStackGrid() {
    <div className="space-y-16">
   {categories.map((category) => (
     <section key={category.title}>
-      <h3 className="text-xl font-bold mb-8 text-emerald-500 dark:text-emerald-400 tracking-wide">
+      <h3 className="text-xl font-bold mb-8 text-cyan-500 dark:text-cyan-400 tracking-wide">
         {category.title}
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {category.items.map((tech, idx) => (
           <Card
             key={tech.name}
-            className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all hover:scale-105 cursor-pointer shadow-md hover:shadow-emerald-500/20"
+            className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all hover:scale-105 cursor-pointer shadow-md hover:shadow-cyan-500/20"
             style={{ animationDelay: `${idx * 60}ms` }}
           >
             <CardContent className="p-6 text-center flex flex-col items-center gap-3">

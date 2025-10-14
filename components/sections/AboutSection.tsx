@@ -12,7 +12,7 @@ export function AboutSection() {
               My expertise lies in designing RESTful APIs, optimizing database queries, 
               and architecting microservices.
             </p>
-            <div className="font-mono text-sm space-y-2 text-emerald-600 dark:text-emerald-400 bg-gray-50 dark:bg-neutral-950 p-4 rounded">
+            <div className="font-mono text-sm space-y-2 text-cyan-600 dark:text-cyan-400 bg-gray-50 dark:bg-neutral-950 p-4 rounded">
               <div>$ Learned Gin framework</div>
               <div>$ Built Portfolio API</div>
               <div>$ Dockerized backend services</div>
