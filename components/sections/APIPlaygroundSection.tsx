@@ -112,15 +112,15 @@ export function APIPlaygroundSection() {
   const getMethodColor = (method: string) => {
     switch (method) {
       case "GET":
-        return "bg-green-500/20 text-green-400 border-green-500";
+        return "bg-green-100 text-green-700 border-green-300 dark:bg-green-400/20 dark:text-green-300 dark:border-green-400";
       case "POST":
-        return "bg-blue-500/20 text-blue-400 border-blue-500";
+        return "bg-blue-100 text-blue-700 border-blue-300 dark:bg-blue-500/20 dark:text-blue-400 dark:border-blue-500";
       case "PUT":
-        return "bg-amber-500/20 text-amber-400 border-amber-500";
+        return "bg-amber-100 text-amber-700 border-amber-300 dark:bg-amber-500/20 dark:text-amber-400 dark:border-amber-500";
       case "DELETE":
-        return "bg-red-500/20 text-red-400 border-red-500";
+        return "bg-red-100 text-red-700 border-red-300 dark:bg-red-500/20 dark:text-red-400 dark:border-red-500";
       default:
-        return "bg-neutral-500/20 text-neutral-400 border-neutral-500";
+        return "bg-neutral-100 text-neutral-700 border-neutral-300 dark:bg-neutral-500/20 dark:text-neutral-400 dark:border-neutral-500";
     }
   };
 
@@ -144,8 +144,8 @@ export function APIPlaygroundSection() {
               key={idx}
               className={`cursor-pointer transition-all ${
                 selectedEndpoint === endpoint
-                  ? "bg-emerald-500/10 dark:bg-emerald-500/10 border-emerald-500 dark:border-emerald-500"
-                  : "bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800 hover:border-emerald-500 dark:hover:border-emerald-500"
+                  ? "bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-500 dark:from-cyan-500/10 dark:to-blue-500/10 dark:border-cyan-500"
+                  : "bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800 hover:border-cyan-500/50 dark:hover:border-cyan-500/50"
               }`}
               onClick={() => {
                 setSelectedEndpoint(endpoint);
@@ -163,7 +163,7 @@ export function APIPlaygroundSection() {
                     {endpoint.method}
                   </span>
                 </div>
-                <div className="font-mono text-xs text-emerald-400 mb-1">
+                <div className="font-mono text-xs text-cyan-400 mb-1">
                   {endpoint.path}
                 </div>
                 <div className="text-xs text-neutral-500">
@@ -177,8 +177,8 @@ export function APIPlaygroundSection() {
         {/* Request / Response Panel */}
         <div className="lg:col-span-2 space-y-4">
           {!selectedEndpoint ? (
-            <Card className="bg-gray-50 dark:bg-neutral-900 border-gray-200 dark:border-neutral-800">
-              <CardContent className="p-12 text-center text-gray-700 dark:text-neutral-300">
+            <Card className="bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800">
+              <CardContent className="p-12 text-center text-gray-800 dark:text-neutral-300">
                 <div className="text-4xl mb-4">🚀</div>
                 <p className="font-mono text-sm">
                   Select an endpoint to test the API
@@ -188,7 +188,7 @@ export function APIPlaygroundSection() {
           ) : (
             <>
               {/* Request */}
-              <Card className="bg-white dark:bg-neutral-900 border-gray-300 dark:border-neutral-800">
+              <Card className="bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-800">
                 <div className="bg-gray-100 dark:bg-neutral-800 px-4 py-2 border-b border-gray-200 dark:border-neutral-700">
                   <span className="text-xs text-gray-600 dark:text-neutral-400 font-mono">
                     REQUEST
@@ -203,14 +203,14 @@ export function APIPlaygroundSection() {
                     >
                       {selectedEndpoint.method}
                     </span>
-                    <span className="font-mono text-sm text-emerald-500 dark:text-emerald-400 flex-1">
+                    <span className="font-mono text-sm text-cyan-500 dark:text-cyan-400 flex-1">
                       {selectedEndpoint.path}
                     </span>
                   </div>
 
                   {selectedEndpoint.params && (
                     <div className="space-y-2">
-                      <div className="text-xs text-gray-500 dark:text-neutral-400 font-mono">
+                      <div className="text-xs text-gray-600 dark:text-neutral-400 font-mono">
                         PARAMETERS
                       </div>
                       {selectedEndpoint.params.map((param, idx) => (
@@ -246,7 +246,8 @@ export function APIPlaygroundSection() {
                         value={requestBody}
                         onChange={(e) => setRequestBody(e.target.value)}
                         placeholder='{"name": "My Project", "status": "in_progress"}'
-                        className="w-full h-24 bg-gray-50 dark:bg-neutral-950 border border-gray-200 dark:border-neutral-700 rounded p-3 font-mono text-sm text-gray-700 dark:text-neutral-300 focus:outline-none focus:border-emerald-500"
+                        //changed
+                        className="w-full h-24 bg-gray-100 dark:bg-neutral-950 border border-gray-300 dark:border-neutral-700 rounded p-3 font-mono text-sm text-gray-700 dark:text-neutral-300 focus:outline-none focus:border-cyan-500"
                       />
                     </div>
                   )}
@@ -257,18 +258,18 @@ export function APIPlaygroundSection() {
                     className={`w-full py-3 rounded font-mono text-sm transition-all ${
                       loading
                         ? "bg-gray-200 dark:bg-neutral-800 text-gray-500 dark:text-neutral-500 cursor-not-allowed"
-                        : "bg-emerald-500 hover:bg-emerald-600 text-white"
+                        : "bg-cyan-500 hover:bg-cyan-600 text-white"
                     }`}
                   >
                     {loading ? (
                       <span className="flex items-center justify-center gap-2">
-                        <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                        <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
                         <span
-                          className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                          className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse"
                           style={{ animationDelay: "0.2s" }}
                         ></span>
                         <span
-                          className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                          className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse"
                           style={{ animationDelay: "0.4s" }}
                         ></span>
                       </span>
@@ -286,7 +287,7 @@ export function APIPlaygroundSection() {
                     <span className="text-xs text-gray-600 dark:text-neutral-400 font-mono">
                       RESPONSE
                     </span>
-                    <span className="text-xs font-mono text-green-600 dark:text-emerald-400">
+                    <span className="text-xs font-mono text-green-600 dark:text-cyan-400">
                       {response.status} {response.statusText}
                     </span>
                   </div>
@@ -313,7 +314,7 @@ export function APIPlaygroundSection() {
                         BODY
                       </div>
                       <div className="bg-gray-50 dark:bg-neutral-950 border border-gray-200 dark:border-neutral-700 rounded p-3 font-mono text-xs overflow-x-auto">
-                        <pre className="text-green-600 dark:text-emerald-400">
+                        <pre className="text-xs text-gray-800 dark:text-cyan-400">
                           {JSON.stringify(response.data, null, 2)}
                         </pre>
                       </div>

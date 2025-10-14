@@ -107,7 +107,7 @@ export function ProjectsSection(){
     return(
     <section id="projects" className="space-y-6 scroll-mt-32">
   <div className="text-center mb-12">
-    <h3 className="text-3xl font-bold mb-2 text-emerald-500 dark:text-emerald-400">Projects</h3>
+    <h3 className="text-3xl font-bold mb-2 text-black dark:text-white">Projects</h3>
     <p className="text-neutral-500 dark:text-neutral-400">Things I&apos;ve built and learned</p>
   </div>
 
@@ -119,8 +119,8 @@ export function ProjectsSection(){
         onClick={() => setFilter(cat)}
         className={`px-4 py-2 rounded-lg font-mono text-sm transition-all ${
           filter === cat
-            ? 'bg-emerald-500 text-white'
-            : 'bg-white dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800 text-gray-700 dark:text-neutral-300 hover:border-emerald-500'
+            ? 'bg-cyan-500 text-white'
+            : 'bg-white dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800 text-gray-700 dark:text-neutral-300 hover:border-cyan-500'
         }`}
       >
         {cat}
@@ -134,7 +134,7 @@ export function ProjectsSection(){
       <Card 
         key={project.id}
         className="bg-white dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800 
-             hover:border-emerald-500 dark:hover:border-emerald-400 
+             hover:border-cyan-500 dark:hover:border-cyan-400 
              transition-all hover:scale-[1.02] group"
       >
         <CardContent className="p-6 space-y-4 text-gray-700 dark:text-neutral-300">
@@ -155,7 +155,7 @@ export function ProjectsSection(){
           {/* Highlights */}
           <div className="space-y-1">
             {project.highlights.map((highlight, idx) => (
-              <div key={idx} className="text-xs font-mono text-emerald-400 flex items-start gap-2">
+              <div key={idx} className="text-xs font-mono text-cyan-400 flex items-start gap-2">
                 <span className="text-gray-400 dark:text-neutral-500">→</span>
                 <span>{highlight}</span>
               </div>
@@ -181,7 +181,7 @@ export function ProjectsSection(){
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-mono text-gray-700 dark:text-neutral-300 hover:text-emerald-400 transition-colors flex items-center gap-1"
+                className="text-sm font-mono text-gray-700 dark:text-neutral-300 hover:text-cyan-400 transition-colors flex items-center gap-1"
               >
                 💻 GitHub
               </a>
@@ -191,7 +191,7 @@ export function ProjectsSection(){
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-mono text-gray-700 dark:text-neutral-300 hover:text-emerald-400 transition-colors flex items-center gap-1"
+                className="text-sm font-mono text-gray-700 dark:text-neutral-300 hover:text-cyan-400 transition-colors flex items-center gap-1"
               >
                 🚀 Demo
               </a>
@@ -213,12 +213,12 @@ export function ProjectsSection(){
   <Card className="bg-white dark:bg-neutral-900 border border-gray-300 dark:border-neutral-800 mt-8">
     <CardContent className="p-6 text-center text-gray-700 dark:text-neutral-300">
       <div className="font-mono text-sm space-y-2">
-        <div><span className="text-emerald-400">$</span> git commit -m &quot;More projects coming soon...&quot;</div>
+        <div><span className="text-cyan-400">$</span> git commit -m &quot;More projects coming soon...&quot;</div>
         <div><span className="text-cyan-400">→</span> Currently learning and building</div>
         <div className="flex items-center justify-center gap-2 pt-2">
-          <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-          <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></span>
-          <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></span>
+          <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+          <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></span>
+          <span className="inline-block w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></span>
         </div>
       </div>
     </CardContent>
