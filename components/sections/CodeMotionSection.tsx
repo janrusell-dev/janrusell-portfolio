@@ -33,8 +33,9 @@ export function CodeMotionSection(){
     // Backend Code Snippet
     const backendCode = `func GetProjects(c *gin.Context) {
     projects := []Project{
-      {ID: 1, Name: "Portfolio"},
-      {ID: 2, Name: "Task Manager"},
+      {ID: 1, Name: "Portfolio Website"},
+      {ID: 2, Name: "URL Shortening Service"},
+      {ID: 3, Name: "BrokerX"}
     }
     c.JSON(200, gin.H{"projects": projects})
   }`;

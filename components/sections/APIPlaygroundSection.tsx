@@ -227,7 +227,7 @@ export function APIPlaygroundSection() {
                           <span className="text-purple-500 dark:text-purple-400">
                             {param.type}
                           </span>
-                          {param.required && (
+                          {param.required && ( 
                             <span className="text-red-500 dark:text-red-400 text-xs">
                               (required)
                             </span>
@@ -327,7 +327,7 @@ export function APIPlaygroundSection() {
         </div>
       </div>
 
-      <Card className="bg-gradient-to-br from-cyan-100/30 to-blue-100/30 dark:from-cyan-500/10 dark:to-blue-500/10 border border-cyan-200 dark:border-cyan-500/20">
+      {/* <Card className="bg-gradient-to-br from-cyan-100/30 to-blue-100/30 dark:from-cyan-500/10 dark:to-blue-500/10 border border-cyan-200 dark:border-cyan-500/20">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
             <span className="text-xl">💡</span>
@@ -341,7 +341,7 @@ export function APIPlaygroundSection() {
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </section>
   );
 }

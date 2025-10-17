@@ -13,8 +13,8 @@ interface Experience {
 const experiences: Experience[] = [
   {
     role: "Backend Developer",
-    company: "Company X",
-    period: "2023 - 2024",
+    company: "Washindi Ventures Pty Ltd.",
+    period: "Aug. 2025 - Oct. 2025",
     highlights: [
       "Built RESTful APIs using Go and PostgreSQL",
       "Dockerized backend services and deployed to AWS",
@@ -22,16 +22,27 @@ const experiences: Experience[] = [
     ],
     tech: ["Go", "PostgreSQL", "Docker", "AWS"],
   },
-  {
-    role: "Intern - Fullstack Developer",
-    company: "Company Y",
-    period: "2022 - 2023",
+   {
+    role: "Software Developer",
+    company: "RD Pawnshop Inc.",
+    period: "Aug. 2024 - Oct. 2025",
     highlights: [
       "Developed Employee Archive Filing System using Django",
       "Implemented authentication, backend logic, and database models",
       "Created responsive frontend using Bootstrap and Tailwind",
     ],
     tech: ["Django", "Python", "Tailwind", "Bootstrap"],
+  },
+  {
+    role: "Software Developer Intern",
+    company: "Records Management Office - Carlos Hilado Memorial State University",
+    period: "Feb. 2024 - May 2024",
+    highlights: [
+      "Developed Employee Archive Filing System using Django",
+      "Implemented authentication, backend logic, and database models",
+      "Created responsive frontend using Bootstrap and Tailwind",
+    ],
+    tech: ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
   },
 ];
 
