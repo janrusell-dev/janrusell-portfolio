@@ -18,7 +18,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Jan Rusell Engracial | Portfolio",
-  description: "Code-in-Motion Portfolio",
+  description: "Web Portfolio",
 };
 
 export default function RootLayout({

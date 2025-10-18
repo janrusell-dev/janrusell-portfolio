@@ -59,28 +59,32 @@ export function ProjectsSection() {
       ],
     },
     {
-      id: 3,
-      title: "BrokerX",
-      description:
-        "A RESTful API built with ASP.NET Core for shortening long URLs, retrieving the original links, managing updates and deletions, and tracking usage statistics.",
-      tech: [
-        "ASP.NET Core",
-        "PostgreSQL",
-        "Entity Framework Core",
-        "Swagger UI",
-        "pgAdmin 4",
-      ],
-      category: "Fullstack",
-      github: "https://github.com/janrusell-dev/BrokerX",
-      status: "In Progress",
-      highlights: [
-        "Shorten and manage URLs via RESTful endpoints",
-        "Retrieve and update original URLs",
-        "Track access statistics for each short URL",
-        "Integrated Swagger UI for API testing",
-        "Database management using PostgreSQL and Entity Framework Core",
-      ],
-    },
+  id: 3,
+  title: "BrokerX",
+  description:
+    "A real-time, lightweight message broker built with Go and Next.js, demonstrating concurrency, WebSocket communication, and metrics visualization.",
+  tech: [
+    "Go",
+    "Goroutines & Channels",
+    "WebSocket",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui"
+  ],
+  category: "Fullstack",
+  github: "https://github.com/janrusell-dev/BrokerX",
+  status: "In Progress",
+  highlights: [
+    "Topic-based Publish/Subscribe messaging",
+    "Real-time WebSocket subscriptions",
+    "Concurrent-safe operations with Go",
+    "Dashboard for metrics and message feed",
+    "Latency and throughput visualization",
+    "Clean architecture with handlers, services, and broker separation"
+  ],
+},
+
   ];
   const categories = ["All", "Backend", "Frontend", "Fullstack", "Learning"];
 
