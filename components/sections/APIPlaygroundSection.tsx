@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Card, CardContent } from "../ui/card";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 interface APIResponse {
   success: boolean;
@@ -28,9 +30,16 @@ export function APIPlaygroundSection() {
   const [selectedEndpoint, setSelectedEndpoint] = useState<APIEndpoint | null>(
     null
   );
+  const [paramValues, setParamValues] = useState<Record<string, string>>({});
   const [requestBody, setRequestBody] = useState("");
   const [response, setResponse] = useState<APIResponseMock | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const projects = [
+    { id: 1, name: "Portfolio", status: "completed" },
+    { id: 2, name: "URL Shortening Service", status: "completed"}, 
+    { id: 3, name: "BrokerX", status: "in_progress" },
+  ];
 
   const endpoints: APIEndpoint[] = [
     {
@@ -39,10 +48,7 @@ export function APIPlaygroundSection() {
       description: "Get all projects",
       exampleResponse: {
         success: true,
-        data: [
-          { id: 1, name: "Portfolio", status: "completed" },
-          { id: 2, name: "Task Manager API", status: "in_progress" },
-        ],
+        data: projects,
       },
     },
     {
@@ -52,28 +58,23 @@ export function APIPlaygroundSection() {
       params: [{ name: "id", type: "number", required: true }],
       exampleResponse: {
         success: true,
-        data: {
-          id: 1,
-          name: "Portfolio",
-          status: "completed",
-          tech: ["Next.js", "TypeScript"],
-        },
+        data: projects[0],
       },
     },
-    {
-      method: "POST",
-      path: "/api/projects",
-      description: "Create new project",
-      params: [
-        { name: "name", type: "string", required: true },
-        { name: "status", type: "string", required: true },
-      ],
-      exampleResponse: {
-        success: true,
-        message: "Project created successfully",
-        data: { id: 3, name: "New Project", status: "in_progress" },
-      },
-    },
+    // {
+    //   method: "POST",
+    //   path: "/api/projects",
+    //   description: "Create new project",
+    //   params: [
+    //     { name: "name", type: "string", required: true },
+    //     { name: "status", type: "string", required: true },
+    //   ],
+    //   exampleResponse: {
+    //     success: true,
+    //     message: "Project created successfully",
+    //     data: { id: 3, name: "New Project", status: "in_progress" },
+    //   },
+    // },
     {
       method: "GET",
       path: "/api/skills",
@@ -81,9 +82,29 @@ export function APIPlaygroundSection() {
       exampleResponse: {
         success: true,
         data: {
-          backend: ["Go", "C#", "Django", "Python"],
-          frontend: ["React", "Next.js", "Tailwind CSS"],
-          database: ["PostgreSQL", "SQL"],
+          languages: ["Go", "C#", "Python", "TypeScript", "JavaScript", "Dart"],
+          backendFrameworks: [".NET Core", "Django", "Gin"],
+          frontendFrameworks: [
+            "React",
+            "Next.js",
+            "Shadcn UI",
+            "Tailwind CSS",
+            "Bootstrap",
+            "Flutter",
+          ],
+          databases: ["PostgreSQL", "SQL Server", "Redis"],
+          devOpsAndCloud: ["Docker", "AWS", "Terraform", "LocalStack", "Nginx"],
+          messageQueues: ["RabbitMQ"],
+          toolsAndOthers: [
+            "Git",
+            "GitHub",
+            "GitHub Actions",
+            "Postman",
+            "Swagger",
+            "Visual Studio Code",
+            "Visual Studio",
+            "Linux",
+          ],
         },
       },
     },
@@ -95,14 +116,30 @@ export function APIPlaygroundSection() {
 
     await new Promise((resolve) => setTimeout(resolve, 800));
 
+    let data = endpoint.exampleResponse.data;
+    let status = 200;
+    let message = "OK";
+
+    if (endpoint.path.includes(":id")) {
+      const id = Number(paramValues["id"]);
+      const found = projects.find((p) => p.id === id);
+      if (found) {
+        data = found;
+      } else {
+        status = 404;
+        message = "Project not found";
+        data = { success: false, message };
+      }
+    }
+
     const mockResponse: APIResponseMock = {
-      status: 200,
-      statusText: "OK",
+      status,
+      statusText: message,
       headers: {
         "Content-Type": "application/json",
         "Response-Time": "42ms",
       },
-      data: endpoint.exampleResponse,
+      data: { success: status === 200, data },
     };
 
     setResponse(mockResponse);
@@ -214,11 +251,23 @@ export function APIPlaygroundSection() {
                         PARAMETERS
                       </div>
                       {selectedEndpoint.params.map((param, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-2 text-xs font-mono"
-                        >
-                          <span className="text-cyan-500 dark:text-cyan-400">
+                        <div key={idx} className="space-y-1">
+                          <Label className="text-xs font-mono text-cyan-500 dark:text-cyan-400">
+                            {param.name} ({param.type})
+                          </Label>
+                          <Input
+                            type="text"
+                            placeholder={`Enter ${param.name}`}
+                            value={paramValues[param.name] || ""}
+                            // className="w-full bg-gray-100 dark:bg-neutral-950 border border-gray-300 dark:border-neutral-700 rounded p-2 font-mono text-sm text-gray-700 dark:text-neutral-300 focus:outline-none focus:border-cyan-500"
+                            onChange={(e) => {
+                              setParamValues({
+                                ...paramValues,
+                                [param.name]: e.target.value,
+                              });
+                            }}
+                          />
+                          {/* <span className="text-cyan-500 dark:text-cyan-400">
                             {param.name}
                           </span>
                           <span className="text-gray-500 dark:text-neutral-500">
@@ -226,8 +275,8 @@ export function APIPlaygroundSection() {
                           </span>
                           <span className="text-purple-500 dark:text-purple-400">
                             {param.type}
-                          </span>
-                          {param.required && ( 
+                          </span> */}
+                          {param.required && (
                             <span className="text-red-500 dark:text-red-400 text-xs">
                               (required)
                             </span>

@@ -26,12 +26,14 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo / Name */}
         <div>
-          <h1 className="text-2xl font-bold text-black dark:text-white">
-            Jan Rusell Engracial
-          </h1>
-          <p className="text-sm text-neutral-400 dark:text-neutral-400">
-            Backend Developer
-          </p>
+          <a href="#home" className="hover:text-cyan-400 transition-colors">
+            <h1 className="text-2xl font-bold text-black dark:text-white">
+              Jan Rusell Engracial
+            </h1>
+            <p className="text-sm text-neutral-400 dark:text-neutral-400">
+              Backend Developer
+            </p>
+          </a>
         </div>
 
         {/* Desktop Navigation + Dark Mode Toggle */}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "../styles/globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -18,7 +18,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Jan Rusell Engracial | Portfolio",
-  description: "Code-in-Motion Portfolio",
+  description: "Web Portfolio",
 };
 
 export default function RootLayout({

@@ -28,19 +28,82 @@ export function InteractiveTerminal() {
   clear      - Clear terminal`,
 
     about: () => `Jan Rusell Engracial
-Backend Developer specializing in Go, C#, Django, and SQL
-Building scalable and reliable backend systems`,
+Backend developer who turns complex ideas into simple, scalable systems.
+I build reliable APIs, optimize databases, and deploy performant production services.
+
+Tech Focus:
+  - Backend: Go, C#, Django, Python
+  - DevOps & Cloud: Docker, AWS, Linux
+
+Current Learning Goals:
+  - Distributed systems
+  - Backend performance optimization
+
+Achievements:
+  $ Built and deployed REST APIs with Gin
+  $ Designed and dockerized microservices
+  $ Optimized SQL queries for better performance
+  $ Automated deployments using AWS`,
+
 
     skills: () => `Tech Stack:
-  Backend: Go, C#, Django, Python
-  Frontend: React, Next.js, Tailwind CSS
-  Database: PostgreSQL, SQL
-  DevOps: Docker, Linux, Git`,
+
+Languages:
+  Go, C#, Python, TypeScript, JavaScript, Dart
+
+Backend Frameworks:
+  .NET Core, Django, Gin
+
+Frontend Frameworks:
+  React, Next.js, Shadcn UI, Tailwind CSS, Bootstrap, Flutter
+
+Databases:
+  PostgreSQL, SQL Server, Redis
+
+DevOps & Cloud:
+  Docker, AWS, Terraform, LocalStack, Nginx
+
+Message Queues:
+  RabbitMQ
+
+Tools & Others:
+  Git, GitHub, GitHub Actions, Postman, Swagger, VS Code, Visual Studio, Linux`,
 
     projects: () => `Projects:
-  1. Portfolio - Personal portfolio website
-  2. Task Manager - Task management API
-  More coming soon...`,
+
+1. Portfolio Website 🎨 (Frontend) - Completed
+   Personal portfolio with code-in-motion theme showcasing backend development skills
+   Highlights:
+     → Animated terminal components
+     → Responsive design
+     → Dark mode optimized
+   Tech: Next.js, TypeScript, Tailwind CSS, shadcn/ui
+   Links: GitHub: github.com/janrusell-dev/portfolio | Demo: janrusell-portfolio.vercel.app
+
+2. URL Shortening Service ⚙️ (Backend) - Completed
+   A RESTful API built with ASP.NET Core for shortening long URLs, retrieving original links, managing updates and deletions, and tracking usage statistics.
+   Highlights:
+     → Shorten and manage URLs via RESTful endpoints
+     → Retrieve and update original URLs
+     → Track access statistics for each short URL
+     → Integrated Swagger UI for API testing
+     → Database management using PostgreSQL and Entity Framework Core
+   Tech: ASP.NET Core, PostgreSQL, Entity Framework Core, Swagger UI, pgAdmin 4
+   Links: GitHub: github.com/janrusell-dev/URLShortener
+
+3. BrokerX 🚀 (Fullstack / Go + Next.js) - In Progress
+   Lightweight **message broker** demonstrating concurrency, WebSocket communication, and real-time metrics visualization.
+   Highlights:
+     → Topic-based publish/subscribe messaging
+     → Concurrent-safe operations using Goroutines and sync primitives
+     → Real-time dashboard for active topics, message rates, and latency charts
+     → Non-blocking broadcasts and graceful cleanup of connections
+     → Clean architecture with handlers, services, middleware
+   Tech: Go, Next.js, WebSockets, shadcn/ui, Tailwind CSS, Redis (optional), BoltDB (optional)
+   Links: GitHub: github.com/janrusell-dev/BrokerX
+   
+$ More projects coming soon... Currently learning and building
+`,
 
     contact: () => `Contact Information:
   Email: jan@example.com
